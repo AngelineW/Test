@@ -4,11 +4,11 @@ USE hospital_db;
 
 -- DROP TABLE IF EXISTS patient_detail;
 CREATE table IF NOT EXISTS patient_detail(
-										  id varchar(500) NOT NULL,
+					  id varchar(500) NOT NULL,
                                           date varchar(500) NOT NULL,
                                           card_no varchar(500) NOT NULL,
-										  first_name varchar(500) NOT NULL,
-										  last_name varchar(500) NOT NULL,
+					  first_name varchar(500) NOT NULL,
+					  last_name varchar(500) NOT NULL,
                                           other_name varchar(500) NOT NULL,
                                           date_of_birth varchar(500) NOT NULL,
                                           gender varchar(500) NOT NULL,
@@ -56,9 +56,9 @@ INSERT INTO employee_detail VALUES (2, Harriet, Kagunda, Minor_Surgery, Harriet1
 
 -- DROP TABLE IF EXISTS department;
 CREATE table IF NOT EXISTS department ( id varchar(250) NOT NULL PRIMARY KEY,
-										date varchar(500) NOT NULL,
-										name varchar(500) NOT NULL UNIQUE
-                                        );
+			   date varchar(500) NOT NULL,
+			   name varchar(500) NOT NULL UNIQUE
+                            );
 
 -- DESCRIBE department;
 
@@ -76,7 +76,7 @@ CREATE table IF NOT EXISTS role (id varchar(500) NOT NULL PRIMARY KEY,
                      department  varchar(500) NOT NULL,
                      name  varchar(500) NOT NULL UNIQUE,
                      FOREIGN KEY (department)
-					 REFERENCES department(name)
+		     REFERENCES department(name)
                      ON DELETE RESTRICT
                      ON UPDATE cascade
 					);
@@ -96,12 +96,12 @@ CREATE TABLE IF NOT EXISTS specialist (id varchar(500) NOT NULL,
 						 date varchar(500) NOT NULL,
 						 department varchar(500) NOT NULL,
 						 role varchar(500) NOT NULL,
-                         staff_id varchar(500),
-                         queue int,
-                         queue_length int,
+                         			 staff_id varchar(500),
+                        			 queue int,
+                        			 queue_length int,
 						 FOREIGN KEY (department)
 						 REFERENCES department(name),
-                         FOREIGN KEY (role)
+                        			 FOREIGN KEY (role)
 						 REFERENCES role(name)
                          );
                         
@@ -118,12 +118,12 @@ CREATE TABLE IF NOT EXISTS queue (
 						date varchar(500) NOT NULL,
 						department varchar(500) NOT NULL,
 						role varchar(500) NOT NULL,
-                        staff_id varchar(500),
-                        specialist_name varchar(500),
+                        			staff_id varchar(500),
+                        			specialist_name varchar(500),
 						patient_card_no varchar(500) NOT NULL,
-                        patient_name varchar(500) NOT NULL,
-                        queue_no varchar(500),
-                        status varchar(500)
+                       				patient_name varchar(500) NOT NULL,
+                        			queue_no varchar(500),
+                        			status varchar(500)
                         )
 
 SELECT * FROM queue;
@@ -134,13 +134,13 @@ DELETE FROM queue WHERE staff_id LIKE 'A001';
 CREATE TABLE IF NOT EXISTS visit (
 						id varchar(500) NOT NULL,
 						date varchar(500) NOT NULL,
-                        card_no varchar(500),
-                        staff_id varchar(500),
-                        visit_note varchar(500),
-                        referral_note varchar(500),
-						tests varchar(500),
-                        diagnosis varchar(500),
-                        prescription varchar(500) 
+						card_no varchar(500),
+						staff_id varchar(500),
+						visit_note varchar(500),
+						referral_note varchar(500),
+					 	tests varchar(500),
+						diagnosis varchar(500),
+						prescription varchar(500) 
 )
 
 SELECT * FROM visit;
